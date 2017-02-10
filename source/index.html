@@ -1,10 +1,54 @@
 ---
 layout: default
-title: CCM Design Inc.
+title: RAP SAT Interface
 ---
 
 <main role="main"> <!-- main content starts here -->
+  <div class="top-bar">
+    <h1>Self Assessment Tool</h1>
+    <div class="map">
+      {% for section in site.data.data %}
+        <div class="map__column">
+          <span class="dot"></span>
+          {% for i in section.questions %}
+          <span class="dot"></span>
+          {% endfor %}
+        </div>
+        
+      {% endfor %}
+    </div>
+    <a href="#" class="user" style="background-image: url('./images/paul.jpg')"></a>
+  </div>
 
-
+  <div class="arrow arrow-prev"><i class="material-icons">keyboard_arrow_left</i></div>
+  <div class="arrow arrow-next"><i class="material-icons">keyboard_arrow_right</i></div>
+  <div class="slider">
+  {% for section in site.data.data %}
+    <div class="section"> 
+      <header class="section-header">
+        <h2>{{section.theme}}</h2>  
+      </header>
+      {% for q in section.questions %}
+        <div class="question-item">
+          <div class="question wrapper">
+            <p>{{q.question}}</p>  
+          </div>
+          
+          <div class="controls">
+            <button class="button green js-yes"><i class="material-icons">check</i></button>
+            <button class="button red js-no"><i class="material-icons">close</i></button>
+          </div>
+          <div class="guidance guidance-no wrapper">
+            <p>{{q.guidance}}</p>  
+          </div>
+          <div class="guidance guidance-yes wrapper">
+            <p>Add the section an/or the page</p>
+            <input type="text" placeholder="Section Number"><input type="text" placeholder="Page Number">
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+  {% endfor %}
+  </div>
 </main>
 

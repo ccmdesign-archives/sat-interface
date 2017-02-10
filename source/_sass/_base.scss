@@ -1,0 +1,218 @@
+$main-color: #70aa00;
+$red: #E50037;
+$green: $main-color;
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  letter-spacing: .4px;
+}
+
+.arrow {
+  position: fixed;
+  top: 200px;
+  cursor: pointer;
+  z-index: 5;
+  background-color: rgba($main-color, .2);
+  border: 1px solid $main-color;
+  height: 65px;
+  width: 65px;
+  border-radius: 50%;
+  text-align: center;
+  padding: 7px;
+  
+  > .material-icons {
+    font-size: 3rem;
+    line-height: 1;
+    color: white;
+  }
+
+  &-prev {
+    left: 20px;
+    text-indent: -1px;
+  }
+  
+  &-next {
+    right: 20px;
+    text-indent: 1px;
+  }
+}
+
+.top-bar {
+  display: flex;
+
+  h1,
+  .map {
+    flex: 1;
+  }
+}
+
+
+
+.wrapper {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.top-bar {
+  text-transform: uppercase;
+  background-color: $main-color;
+  box-shadow: 2px 0 16px rgba(black, .2);
+  position: relative;
+  z-index: 1;
+  
+  h1 {
+    padding: 15px;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 200;  
+    color: darken($main-color, 24);
+  }
+
+  .user {
+    float: right;
+    display: inline-block;
+    height: 57px;
+    width: 57px;
+    margin: 4px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+}
+
+.map {
+  padding: 14px;
+  display: flex;
+
+  &__column {
+    
+    flex: 0;
+
+    .dot { display: block; }
+  }
+
+  .dot {
+    background-color: rgba(white, .4);
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    margin: 6px 8px;
+    vertical-align: middle;
+
+    &.answered-yes {
+      height: 9px;
+      width: 9px;
+      background-color: white;
+    }
+
+    &.answered-no {
+      height: 9px;
+      width: 9px;
+      background-color: $red;
+    }
+  }
+}
+
+
+
+.section {
+  text-align: center;
+
+  h2 {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    font-weight: 200;  
+    text-transform: uppercase;
+    color: darken($main-color, 14);
+  }
+}
+
+.question-item {
+  padding: 40px;
+  border-bottom: 1px solid rgba(black, .2);
+
+  &:first-of-type { border-top: 1px solid rgba(black, .2); }
+
+  &:nth-of-type(odd) { background-color: rgba(black, .03); }
+  &.question-yes { 
+    background-color: rgba($green, .1);
+    border-bottom: 1px solid $green;
+  }
+
+  p {
+    font-weight: 200;
+  }
+  
+  &.question-no { 
+    background-color: rgba($red, .05);
+    border-bottom: 1px solid $red;
+    p {color: $red;}
+  }
+}
+
+.guidance {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .5s ease;
+
+  p { color: rgba(black, .4); }
+  
+  input {
+    margin: 0 10px;
+  }
+
+}
+
+.question-no .guidance-no { 
+  max-height: 800px; 
+  transition: max-height .5s ease;
+}
+
+.question-yes .guidance-yes { 
+  max-height: 800px; 
+  transition: max-height .5s ease;
+}
+
+
+.controls {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+}
+
+.question-yes .section-number { 
+  max-width: 180px; 
+  transition: max-width .5s ease;
+}
+
+.button {
+  padding: 15px;
+  height: 56px;
+  border: 1px solid rgba(black, .1);
+  text-transform: uppercase;
+  color: white;
+  font-weight: bold;
+  border-radius: 50%;
+  margin: 0 10px;
+}
+
+.button:hover { transition: all .3s ease; }
+
+
+.button.green { background-color: rgba($green, .3); }
+.button.red { background-color: rgba($red, .3); }
+
+.button.green:hover { background-color: rgba($green, .5); }
+.button.red:hover { background-color: rgba($red, .5); }
+
+.question-yes .button.green { background-color: $green; }
+.question-no .button.red { background-color: $red; }
+
+input[type="text"] {
+  padding: 13px;
+}

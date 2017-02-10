@@ -20,57 +20,23 @@ $(document).ready(function () {
         return true;
     });
 
-    // Modal Click Behavior
-    $('.js-open-modal').click(function () {
-        $('.js-target-modal').addClass('js-active');
-        $('#overlay').addClass('js-active');
-        $('body').addClass('js-body-modal-active');
+    
+
+    $('.js-no').click(function () {
+      $(this).parent().parent().addClass('question-no');
+      $(this).parent().parent().removeClass('question-yes');
     });
 
-    $('.js-close-modal').click(function () {
-        $('.js-target-modal').removeClass('js-active');
-        $('#overlay').removeClass('js-active');
-        $('body').removeClass('js-body-modal-active');
-    });
-
-    // Sticky Click Behavior
-    $('.js-close-sticky').click(function () {
-        $('.js-target-sticky').removeClass('js-active');
-    });
-
-    // Search Click Behavior
-    $('.js-trigger-search').click(function (e) {
-        e.preventDefault();
-        $(this).parent().addClass('js-active');
-        $('#overlay').addClass('js-active');
-    });
-
-    // Main Menu Click Behavior
-    $('.js-trigger-menu').click(function (e) {
-        $(this).next().addClass('js-active-menu');
-        $('#overlay').addClass('js-active');
-    });
-
-    // General Click Behavior for Overlay
-    $('#overlay').click(function () {
-        $('.js-active').removeClass('js-active');
-        $('.js-active-menu').removeClass('js-active-menu');
+    $('.js-yes').click(function () {
+      $(this).parent().parent().addClass('question-yes');
+      $(this).parent().parent().removeClass('question-no');
     });
 
     // Slider
     $('.slider').slick({
         arrows: true,
-        draggable: false,
-        swipeToSlide: true,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        responsive: [
-            {
-                breakpoint: 800,
-                settings: {
-                    draggable: true
-                }
-            }
-        ]
+        autoplay: false,
+        prevArrow: '<div class="arrow arrow-prev"><i class="material-icons">keyboard_arrow_left</i></div>',
+        nextArrow: '<div class="arrow arrow-next"><i class="material-icons">keyboard_arrow_right</i></div>'
     });
 }); // doc.ready
