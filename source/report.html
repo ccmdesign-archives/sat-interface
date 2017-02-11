@@ -1,0 +1,36 @@
+---
+layout: default
+title: RAP SAT Interface
+---
+
+<main role="main"> <!-- main content starts here -->
+  <div class="top-bar">
+    <h1>Self Assessment Tool</h1>
+    <a href="#" class="user" style="background-image: url('./images/paul.jpg')"></a>
+  </div>
+  <table class="report" >
+  <thead>
+    <th colspan="5">Report for Claudio Mendonca - Submitted on January, 20<sup>th</sup>, 2017</th>
+  </thead>
+  {% for section in site.data.data %}
+    {% assign outerloop = forloop.index %}
+    <tr class="section-title">
+      <td></td>
+      <td>{{section.theme}}</td>
+      <td class="number">Section</td>
+      <td class="number">Page</td>
+      <td></td>
+    </tr>
+    {% for q in section.questions %}
+    <tr class="report-row">
+      <td></td>
+      <td class="question">{{q.question}}</td>
+      <td class="number">{{q.rap_section}}</td>
+      <td class="number">{{q.rap_page}}</td>
+      <td></td>
+    </tr>
+    {% endfor %}
+  {% endfor %}
+  </table>
+</main>
+
