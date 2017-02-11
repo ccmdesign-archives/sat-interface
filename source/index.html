@@ -8,10 +8,10 @@ title: RAP SAT Interface
     <h1>Self Assessment Tool</h1>
     <div class="map">
       {% for section in site.data.data %}
-        <div class="map__column">
-          <span class="dot"></span>
+        {% assign outerloop = forloop.index %}
+        <div id="{{outerloop}}" class="map__column">
           {% for i in section.questions %}
-          <span class="dot"></span>
+          <span id="{{outerloop}}-{{forloop.index}}" class="dot"></span>
           {% endfor %}
         </div>
         
@@ -24,12 +24,13 @@ title: RAP SAT Interface
   <div class="arrow arrow-next"><i class="material-icons">keyboard_arrow_right</i></div>
   <div class="slider">
   {% for section in site.data.data %}
-    <div class="section"> 
+    {% assign outerloop = forloop.index %}
+    <div id="{{outerloop}}" class="section"> 
       <header class="section-header">
         <h2>{{section.theme}}</h2>  
       </header>
       {% for q in section.questions %}
-        <div class="question-item">
+        <div id="{{outerloop}}-{{forloop.index}}" class="question-item">
           <div class="question wrapper">
             <p>{{q.question}}</p>  
           </div>

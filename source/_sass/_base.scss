@@ -87,12 +87,19 @@ body {
 .map {
   padding: 14px;
   display: flex;
+  font-size: 10px;
+  line-height: 1.5;
 
   &__column {
-    
     flex: 0;
+    text-align: center;
 
-    .dot { display: block; }
+    &.current {
+      background-color: rgba(white, .1);
+    }
+
+    .dot { display: inline-block; }
+    // .dot { display: block; }
   }
 
   .dot {
@@ -100,19 +107,20 @@ body {
     height: 6px;
     width: 6px;
     border-radius: 50%;
-    margin: 6px 8px;
+    margin: 3px 6px;
     vertical-align: middle;
 
     &.answered-yes {
-      height: 9px;
-      width: 9px;
+      height: 8px;
+      width: 8px;
       background-color: white;
     }
 
     &.answered-no {
-      height: 9px;
-      width: 9px;
-      background-color: $red;
+      height: 7px;
+      width: 7px;
+      border: 1px solid white;
+      background-color: transparent;
     }
   }
 }
@@ -157,7 +165,7 @@ body {
 .guidance {
   overflow: hidden;
   max-height: 0;
-  transition: max-height .5s ease;
+  // transition: max-height .5s ease;
 
   p { color: rgba(black, .4); }
   

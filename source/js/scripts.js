@@ -20,8 +20,6 @@ $(document).ready(function () {
         return true;
     });
 
-    
-
     $('.js-no').click(function () {
       $(this).parent().parent().addClass('question-no');
       $(this).parent().parent().removeClass('question-yes');
@@ -36,7 +34,17 @@ $(document).ready(function () {
     $('.slider').slick({
         arrows: true,
         autoplay: false,
+        // dots: true,
+        infinite: false,
         prevArrow: '<div class="arrow arrow-prev"><i class="material-icons">keyboard_arrow_left</i></div>',
         nextArrow: '<div class="arrow arrow-next"><i class="material-icons">keyboard_arrow_right</i></div>'
     });
+
+    // Simulation scripts for the map. Delete once merged with firebase
+    $('#2').addClass('current');
+    $('#1-1').addClass('answered-yes');
+    $('#1-2').addClass('answered-yes');
+    $('#2-1').addClass('answered-no');
+    $('#3-2').addClass('answered-no');
+    
 }); // doc.ready
