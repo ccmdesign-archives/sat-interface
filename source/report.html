@@ -25,8 +25,10 @@ title: RAP SAT Interface
     <tr class="report-row">
       <td></td>
       <td class="question">{{q.question}}</td>
-      <td class="number">{{q.rap_section}}</td>
-      <td class="number">{{q.rap_page}}</td>
+      {% if q.rap_section %}<td class="number">{{q.rap_section}}</td>
+      {% else %}<td class="number false"><i class="material-icons">close</i></td>{% endif %}
+      {% if q.rap_page %}<td class="number">{{q.rap_page}}</td>
+      {% else %}<td class="number false"><i class="material-icons">close</i></td>{% endif %}
       <td></td>
     </tr>
     {% endfor %}
